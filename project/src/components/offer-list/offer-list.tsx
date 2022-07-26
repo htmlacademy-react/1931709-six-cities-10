@@ -15,7 +15,12 @@ export function OfferList({offers}: OfferListProps): JSX.Element {
 
   return (
     <div className="cities__places-list places__list tabs__content">
-      {offers.map((offer) => <CardOffer offer={offer} key={offer.id} changeActiveOfferHandler={changeActiveOfferHandler}/>)}
+      {offers.map((offer) => {
+        const keyValue = `${offer.id}-offer`;
+        return (
+          <CardOffer offer={offer} key={keyValue} changeActiveOfferHandler={changeActiveOfferHandler}/>
+        );
+      })}
     </div>
   );
 }
